@@ -107,19 +107,19 @@ def over?(board)
   end
 end
 
-def winner(board)
-  index = []
-  index = won?(board)
-  if index == false
-    return nil
-  else
-    if board[index[0]] == "X"
-      return "X"
-    else
-      return "O"
-    end
-  end
-end
+# def winner(board)
+#   index = []
+#   index = won?(board)
+#   if index == false
+#     return nil
+#   else
+#     if board[index[0]] == "X"
+#       return "X"
+#     else
+#       return "O"
+#     end
+#   end
+# end
 
 # def play(board)
 #   input = gets
@@ -133,13 +133,39 @@ end
 #   end
 # end
 
+# def play(board)
+#   until over?(board) == true
+#     turn(board)
+#     if won?(board)
+#       puts "Congratulations #{winner(board)}!"
+#     elsif draw?(board)
+#       puts "Cat's Game!"
+#   end
+#   end
+# end
+
+def winner (board)
+  index = []
+  index = won?(board)
+  if index == false
+    return nil
+  else
+    if board[index[0]] == "X"
+      return "X"
+    else
+      return "O"
+    end
+  end
+end
+
 def play(board)
   until over?(board) == true
     turn(board)
-    if won?(board)
-      puts "Congratulations #{winner(board)}!"
-    elsif draw?(board)
-      puts "Cat's Game!"
   end
+
+  if won?(board)
+    puts "Congratulations #{winner(board)}!"
+  elsif draw?(board)
+    puts "Cats Game!"
   end
 end
