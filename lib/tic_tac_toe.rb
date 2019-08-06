@@ -133,13 +133,25 @@ end
 #   end
 # end
 
-def play(board)
-  until over?(board) == true
-    turn(board)
-    if won?(board)
-      puts "Congratulations #{winner(board)}!"
-    elsif draw?(board)
-      puts "Cat's Game!"
+# def play(board)
+#   until over?(board) == true
+#     turn(board)
+#     if won?(board)
+#       puts "Congratulations #{winner(board)}!"
+#     elsif draw?(board)
+#       puts "Cat's Game!"
+#   end
+#   end
+# end
+
+def play
+  while !over?
+    turn
   end
+  if won?
+    puts "Congratulations #{winner}!"
+  elsif draw?
+    puts "Cats Game!"
   end
 end
+
